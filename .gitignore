@@ -1,0 +1,75 @@
+# --- Byte-compiled / optimized / C extensions ---
+__pycache__/
+starter/tests/__pycache__/*
+*.pyc
+*.pyo
+*.pyd
+
+# --- Distribution / packaging ---
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Python Virtual Environments ---
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- IDE / Editor specific files ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# --- Project-specific files ---
+# Secrets and local configurations
+config.env
+*.env
+
+# Model artifacts and large data files
+# It's a best practice to track these with a tool like DVC or W&B Artifacts, not Git.
+model_artifacts/
+data/
+
+# Log files and local output
+*.log
+slice_output.txt
+logs/
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# OS-specific files
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
