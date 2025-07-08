@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 
-from starter.starter.ml.model import train_model
-from starter.starter.train_model import read_data_into_df
+from starter.ml.model import train_model
+from starter.train_model import read_data_into_df
 
 dummy_arr = np.zeros(shape=(5, 2), dtype=np.uint8)
 

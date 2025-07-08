@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
-from starter.starter.ml.model import compute_model_metrics
+from starter.ml.model import compute_model_metrics
 
 
 def process_data(

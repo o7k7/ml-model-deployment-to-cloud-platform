@@ -3,7 +3,7 @@ from http import HTTPStatus
 from fastapi.testclient import TestClient
 from unittest.mock import MagicMock
 import numpy as np
-from starter.main import app
+from main import app
 
 client = TestClient(app)
 

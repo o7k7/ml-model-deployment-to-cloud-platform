@@ -1,6 +1,6 @@
 # --- Byte-compiled / optimized / C extensions ---
 __pycache__/
-starter/tests/__pycache__/*
+tests/__pycache__/*
 *.pyc
 *.pyo
 *.pyd

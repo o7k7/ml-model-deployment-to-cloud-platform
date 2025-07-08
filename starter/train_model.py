@@ -4,10 +4,10 @@ import os
 import joblib
 from sklearn.model_selection import train_test_split
 
-from starter.starter.ml.data import process_data, log_performance_on_slices
+from starter.ml.data import process_data, log_performance_on_slices
 import pandas as pd
 
-from starter.starter.ml.model import train_model, compute_model_metrics, inference
+from starter.ml.model import train_model, compute_model_metrics, inference
 
 cat_features = [
     "workclass",

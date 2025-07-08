@@ -4,15 +4,15 @@ from contextlib import asynccontextmanager
 import joblib
 from fastapi import FastAPI, Body, HTTPException, Request
 
-from starter.starter.dtos.CensusInputRequestDto import CensusInput, body_to_df
-from starter.starter.ml.data import process_data
-from starter.starter.train_model import cat_features
+from starter.dtos.CensusInputRequestDto import CensusInput, body_to_df
+from starter.ml.data import process_data
+from starter.train_model import cat_features
 
 ml_resources = {}
 
 
 def load_resources():
-    artifacts_dir = "starter/model"
+    artifacts_dir = "model"
 
     try:
         print("Loading artifacts...")
