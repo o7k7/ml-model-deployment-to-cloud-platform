@@ -12,7 +12,7 @@ ml_resources = {}
 
 
 def load_resources():
-    artifacts_dir = "model"
+    artifacts_dir = "starter/model"
 
     try:
         print("Loading artifacts...")
