@@ -58,7 +58,7 @@ config.env
 # Model artifacts and large data files
 # It's a best practice to track these with a tool like DVC or W&B Artifacts, not Git.
 model_artifacts/
-data/
+
 
 # Log files and local output
 *.log
