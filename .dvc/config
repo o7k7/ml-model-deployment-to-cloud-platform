@@ -1,5 +1,4 @@
 [core]
     remote = my-gdrive
 ['remote "my-gdrive"']
-    url = gdrive://1vZ7AIsJ8Z7o2JUn3QPr2p03aYcKGWW0r
-    gdrive_service_account_json_file_path = ml-dvc-dd5d4ac7a4ed.json
+    url = s3://dvc-ml-census
