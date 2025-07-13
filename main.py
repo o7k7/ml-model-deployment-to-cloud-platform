@@ -51,8 +51,11 @@ async def lifespan(app: FastAPI):
                 )
                 print("DVC pull successful.")
                 print("DVC Output:", dvc_pull_result.stdout)
-            except subprocess.CalledProcessError:
+            except subprocess.CalledProcessError as e:
                 print("--- DVC PULL FAILED ---")
+                print(f"Exit Code: {e.returncode}")
+                print(f"STDOUT from DVC: {e.stdout}")
+                print(f"STDERR from DVC: {e.stderr}")
 
     model, encoder, lb = load_resources()
     if not all([model, encoder, lb]):
