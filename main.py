@@ -1,4 +1,5 @@
 import os
+import subprocess
 from contextlib import asynccontextmanager
 
 import joblib
@@ -28,6 +29,8 @@ def load_resources():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    subprocess.run(["dvc", "pull", "--force"], check=True)
+
     model, encoder, lb = load_resources()
     if not all([model, encoder, lb]):
         raise Exception("Model artifacts not found")
