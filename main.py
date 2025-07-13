@@ -36,7 +36,7 @@ async def lifespan(app: FastAPI):
         print(f"DEBUG: AWS_SECRET_ACCESS_KEY is set: {bool(aws_secret_key)}")
 
         if not all([aws_key_id, aws_secret_key]):
-            print("FATAL ERROR: AWS credentials not found in environment variables. DVC pull will fail.")
+            print("AWS credentials not found in environment variables")
         else:
             try:
                 print("Attempting to run 'dvc pull'...")
@@ -51,7 +51,7 @@ async def lifespan(app: FastAPI):
                 )
                 print("DVC pull successful.")
                 print("DVC Output:", dvc_pull_result.stdout)
-            except subprocess.CalledProcessError as e:
+            except subprocess.CalledProcessError:
                 print("--- DVC PULL FAILED ---")
 
     model, encoder, lb = load_resources()
