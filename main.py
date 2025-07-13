@@ -1,7 +1,6 @@
 import os
 import subprocess
 from contextlib import asynccontextmanager
-
 import joblib
 from fastapi import FastAPI, Body, HTTPException, Request
 
@@ -29,7 +28,31 @@ def load_resources():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    subprocess.run(["dvc", "pull", "--force"], check=True)
+    if "DYNO" in os.environ and os.path.isdir(".dvc"):
+        aws_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+        aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+
+        print(f"DEBUG: AWS_ACCESS_KEY_ID is set: {bool(aws_key_id)}")
+        print(f"DEBUG: AWS_SECRET_ACCESS_KEY is set: {bool(aws_secret_key)}")
+
+        if not all([aws_key_id, aws_secret_key]):
+            print("FATAL ERROR: AWS credentials not found in environment variables. DVC pull will fail.")
+        else:
+            try:
+                print("Attempting to run 'dvc pull'...")
+
+                # FIX: Set environment variable to tell DVC not to look for Git.
+                os.environ['DVC_NO_SCM'] = 'true'
+                dvc_pull_result = subprocess.run(
+                    ["dvc", "pull", "--force"],
+                    check=True,
+                    capture_output=True,
+                    text=True
+                )
+                print("DVC pull successful.")
+                print("DVC Output:", dvc_pull_result.stdout)
+            except subprocess.CalledProcessError as e:
+                print("--- DVC PULL FAILED ---")
 
     model, encoder, lb = load_resources()
     if not all([model, encoder, lb]):
