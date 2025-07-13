@@ -73,3 +73,5 @@ logs/
 .DS_Store
 # Windows
 Thumbs.db
+/data
+/model
