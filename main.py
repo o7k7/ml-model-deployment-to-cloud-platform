@@ -44,7 +44,7 @@ async def lifespan(app: FastAPI):
                 # FIX: Set environment variable to tell DVC not to look for Git.
                 os.environ['DVC_NO_SCM'] = 'true'
                 dvc_pull_result = subprocess.run(
-                    ["dvc", "pull", "--force"],
+                    ["dvc", "pull", "--no-scm", "--force"],
                     check=True,
                     capture_output=True,
                     text=True
