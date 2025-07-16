@@ -39,7 +39,7 @@ def send_prediction_request(api_url: str, data: dict, http_headers: dict):
         try:
             result = response.json()
         except json.JSONDecodeError:
-            result = {"error": "Failed to decode JSON response", "content": response.text}
+            result = {"error": "Failed to decode response", "content": response.text}
 
         return status_code, result
 
